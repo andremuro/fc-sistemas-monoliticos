@@ -1,7 +1,7 @@
 import Id from "../../@shared/domain/value-object/id.value-object";
 import Address from "../domain/address.entity";
 import Invoice from "../domain/invoice";
-import Product from "../domain/product.entity";
+import {InvoiceItemEntity} from "../domain/invoice-item.entity";
 import InvoiceItemModel from "./transaction.item.model";
 import InvoiceModel from "./transaction.model";
 import InvoiceRepository from "./transaction.repository";
@@ -39,12 +39,12 @@ describe("InvoiceRepository test", () => {
                 zipCode: "12345678"
             }),
             items: [
-                new Product({
+                new InvoiceItemEntity({
                 id: new Id("1"),
                 name: "Item 1",
                 price: 100,
             }),
-                new Product({
+                new InvoiceItemEntity({
                 id: new Id("2"),
                 name: "Item 2",
                 price: 200,
@@ -92,12 +92,12 @@ describe("InvoiceRepository test", () => {
                 zipCode: "12345678"
             }),
             items: [
-                new Product({
+                new InvoiceItemEntity({
                 id: new Id("1"),
                 name: "Item 1",
                 price: 100,
             }),
-                new Product({
+                new InvoiceItemEntity({
                 id: new Id("2"),
                 name: "Item 2",
                 price: 200,

@@ -2,7 +2,7 @@ import Id from "../../../@shared/domain/value-object/id.value-object";
 import UseCaseInterface from "../../../@shared/usecase/use-case.interface"
 import Address from "../../domain/address.entity";
 import Invoice from "../../domain/invoice";
-import Product from "../../domain/product.entity";
+import {InvoiceItemEntity} from "../../domain/invoice-item.entity";
 import InvoiceGateway from "../../gateway/invoice.gateway"
 import { GenerateInvoiceUseCaseInputDto, GenerateInvoiceUseCaseOutputDto } from "./generate-invoice.usecase.dto";
 
@@ -23,7 +23,7 @@ export default class GenerateInvoiceUseCase implements UseCaseInterface {
           }),
           items: input.items.map(
               (item) =>
-                new Product({
+                new InvoiceItemEntity({
                   id: new Id(item.id),
                   name: item.name,
                   price: item.price,

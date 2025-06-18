@@ -1,7 +1,7 @@
 import Id from "../../@shared/domain/value-object/id.value-object";
 import Address from "../domain/address.entity";
 import Invoice from "../domain/invoice";
-import Product from "../domain/product.entity";
+import {InvoiceItemEntity} from "../domain/invoice-item.entity";
 import InvoiceGateway from "../gateway/invoice.gateway";
 import InvoiceItemModel from "./transaction.item.model";
 import InvoiceModel from "./transaction.model";
@@ -45,7 +45,7 @@ export default class InvoiceRepository implements InvoiceGateway {
               state: result.state,
               zipCode: result.zipCode,
           }),
-          items: result.items.map((item) => new Product({
+          items: result.items.map((item) => new InvoiceItemEntity({
               id: new Id(item.id),
               name: item.name,
               price: item.price,
